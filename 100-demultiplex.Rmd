@@ -26,4 +26,12 @@ grep ^GGACAAGCTA P1_S1_L005_R1_001.fastq  | wc
  
 They exist.      
 
+Checking if this matches expected barcodes in run_BestRadSplit.sh   
+
+grep ^GGACAAGCTATGCAGG P1_S1_L005_R1_001.fastq  | wc    
+
+
+Rolling the dice to see if they are all the same.     
+
+
 
