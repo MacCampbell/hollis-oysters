@@ -14,9 +14,9 @@ Setting up data/raw/plate-1 and data/raw/plate-2 on farm.
 
 Using symlinks     
 
-`(base) maccamp@farm:~/hollis-oysters/data/raw/plate-1$ ln -s /group/hrjonesgrp/P1_S1_L005_R* .`
+`(base) maccamp@farm:~/hollis-oysters/data/raw/plate-1$ ln -s /group/hrjonesgrp/P1_S1_L005_R* .`    
 
-`(base) maccamp@farm:~/hollis-oysters/data/raw/plate-2$ ln -s /group/hrjonesgrp/P2_S2_L005_R* .`
+`(base) maccamp@farm:~/hollis-oysters/data/raw/plate-2$ ln -s /group/hrjonesgrp/P2_S2_L005_R* .`     
 
 ...done...     
 
@@ -29,9 +29,21 @@ They exist.
 Checking if this matches expected barcodes in run_BestRadSplit.sh   
 
 grep ^GGACAAGCTATGCAGG P1_S1_L005_R1_001.fastq  | wc    
-
+ 305281  305281 46402712       
 
 Rolling the dice to see if they are all the same.     
 
+`(base) maccamp@farm:~/hollis-oysters/data/raw/plate-1$ ln -s ~/hollis-oysters/scripts/*.sh .`    
+`(base) maccamp@farm:~/hollis-oysters/data/raw/plate-1$ ln -s ~/hollis-oysters/scripts/*.pl .`     
+`(base) maccamp@farm:~/hollis-oysters/data/raw/plate-1$ rm Geno2Colony.pl `     
+`(base) maccamp@farm:~/hollis-oysters/data/raw/plate-1$ bash 1-set-up-wellsplit.sh `      
+`(base) maccamp@farm:~/hollis-oysters/data/raw/plate-1$ sbatch 2-run-wellsplit.sh file-list.txt `     
 
+96 RA and 96 RB files with reads in them.  Takes a hot minute to run.          
+in data/raw/plate-1      
 
+```{sh, eval=FALSE}
+for f in *RA*fastq; do awk '{n++} END {print FILENAME "\t" n/4}' $f >> raw-counts.txt; done;
+```
+
+This will give us an idea of the raw read count distribution.     
