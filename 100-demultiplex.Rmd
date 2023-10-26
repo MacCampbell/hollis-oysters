@@ -1,0 +1,19 @@
+---
+title: "100-demultiplex"
+output: html_document
+date: "2023-10-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
+
+There are 2 plates - plate 1 had all 96 wells used and plate 2 had only 59 used.    
+
+Setting up data/raw/plate-1 and data/raw/plate-2 on farm.     
+
+...done...     
+
+checking for barcodes    
+grep ^GGACAAGCTA P1_S1_L005_R1_001.fastq  | wc       
+ 307967  307967 46810984      
