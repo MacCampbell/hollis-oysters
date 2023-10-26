@@ -46,4 +46,5 @@ in data/raw/plate-1
 for f in *RA*fastq; do awk '{n++} END {print FILENAME "\t" n/4}' $f >> raw-counts.txt; done;
 ```
 
-This will give us an idea of the raw read count distribution.     
+This will give us an idea of the raw read count distribution from the forward reads.     
+
